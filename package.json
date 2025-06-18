@@ -1,0 +1,20 @@
+{
+  "name": "sassential",
+  "version": "1.0.0",
+  "scripts": {
+    "build:win": "node_modules\\.bin\\sass scss/app.scss:build/css/app.css --style compressed --verbose",
+    "build:linux": "node_modules/.bin/sass scss/app.scss:build/css/app.css --style compressed --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thegame4craft/Sassential.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/thegame4craft/Sassential/issues"
+  },
+  "homepage": "https://github.com/thegame4craft/Sassential#readme",
+  "description": ""
+}

@@ -1,0 +1,61 @@
+@use "../variables" as *;
+
+
+.table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: $spacing;
+    background-color: $card-bg;
+    color: $text-color;
+    border: $border-width solid $border-color;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    thead {
+        display: table-header-group;
+        background-color: $primary-color;
+        color: $text-color;
+        th {
+            text-align: start;
+            padding: 0.5rem;
+            border-bottom: $border-width solid $border-color;
+        }
+    }
+    tbody {
+        display: table-row-group;
+        tr {
+            display: table-row;
+            background-color: $card-bg;
+            &:nth-child(odd) {
+                background-color: $card-bg;
+            }
+            td {
+                display: table-cell;
+                padding: 0.5rem;
+                border-bottom: $border-width solid $border-color;
+            }
+            @for $i from 0 through 12 {
+                &.columns-#{$i} {
+                    td {
+                        width: #{$i * 8.3333333333%};
+                    }
+                    @for $j from 1 through 12 {
+                        td.colspan-#{$i} {
+                            width: #{$i * 8.3333333333% * $j};
+                        }
+                    }
+                }
+            }
+        }
+    }
+    tfoot {
+        display: table-footer-group;
+        background-color: $primary-color;
+        color: $text-color;
+        td {
+            padding: 0.5rem;
+            border-top: $border-width solid $border-color;
+        }
+    }
+}

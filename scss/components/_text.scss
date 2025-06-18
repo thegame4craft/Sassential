@@ -1,0 +1,50 @@
+@use "sass:map";
+@use "../variables" as *;
+
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+@each $name, $color in $colors {
+    .text-#{""+ $name} {
+        color: $color;
+    }
+
+    .bg-#{""+ $name} {
+        background-color: $color;
+    }
+
+    .border-color-#{""+ $name} {
+        border-color: $color;
+    }
+
+    @each $side in top, right, bottom, left {
+        .border-#{$side}-color-#{""+ $name} {
+            border-#{$side}-color: $color;
+        }
+    }
+}
+
+kbd {
+    background: $code-bg;
+    padding: 0.2*$spacing 0.3*$spacing;
+    border-radius: 0.2*$spacing;
+    border: $border-width solid $border-color;
+}
+
+a {
+    color: map.get($colors, primary);
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:visited {
+        color: map.get($colors, primary);
+    }
+
+    &.btn-primary:visited {
+        color: map.get($colors, light);
+    }
+}

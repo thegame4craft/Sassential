@@ -1,0 +1,36 @@
+@use "sass:map";
+@use "../variables" as *;
+
+
+.form {
+    width: 100%;
+}
+
+/* Forms */
+
+.form-group {
+    margin: 1rem 0;
+
+    & .form-control {
+        background: map.get($colors, dark);
+        border: none;
+        border-bottom: 1px solid $border-color;
+        color: $text-color;
+        padding: 0.6 * $spacing;
+        margin-top: 0.6 * $spacing;
+        outline: $primary-color;
+        width: calc(100% - 1.6 * $spacing);
+
+        &:focus {
+            border-bottom: 1px solid $primary-color;
+        }
+    }
+
+    & .form-label {
+        color: $text-color;
+        font-size: map.get($font-sizes, md);
+        margin-bottom: 0.5rem;
+
+    }
+}
+

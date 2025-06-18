@@ -1,0 +1,85 @@
+@use "sass:color";
+@use "../variables" as *;
+
+
+.sidebar {
+    width: $sidebar-width;
+    background-color: $sidebar-bg;
+    border-right: $border-color solid $border-width;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+
+    & .sidebar-title {
+        color: $text-color;
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 0.8 * $spacing;
+        border-bottom: $border-color solid $border-width;
+    }
+
+    & .sidebar-body {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        & a {
+            color: $text-color;
+            text-decoration: none;
+        }
+
+        & .sidebar-item:has(:hover) {
+            background-color: rgba(color.adjust($sidebar-bg, $lightness: -10%), 51%);
+        }
+
+        & .sidebar-item {
+            padding: 0.75 * $spacing 0.9 * $spacing;
+
+            &.active {
+                background-color: rgba(color.adjust($sidebar-bg, $lightness: -10%), 51%);
+                border-left: $primary-color solid 0.25rem;
+                padding-left: 0.65 * $spacing;
+            }
+
+            & i {
+                margin-right: 0.5 * $spacing;
+            }
+        }
+    }
+}
+
+.sidebar:not(.sidebar-title) {
+    padding-top: 0;
+}
+
+.sidebar-group {
+    padding: 0;
+    & .sidebar-group-title {
+        background-color: rgba(color.adjust($sidebar-bg, $lightness: -10%), 51%);
+        padding: 0.5 * $spacing 0.9 * $spacing;
+        color: $sidebar-group-title-color;
+    }
+}
+
+body:has(main .sidebar) main {
+    height: calc(100% - 3rem - $spacing * 0.5);
+}
+
+.sidebar.freely {
+    margin: 0.5 * $spacing;
+    border-radius: $spacing;
+    height: calc(100% - ($spacing*1.3));
+    border-color: $border-color;
+    border-width: 2.5px;
+    border-style: solid;
+}
+

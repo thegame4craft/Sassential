@@ -1,0 +1,17 @@
+@use "../variables" as *;
+
+
+.split-view {
+    display: flex;
+    flex-direction: row;
+}
+
+@for $i from 1 through 5 {
+    .pane-#{$i} {
+        flex: $i;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

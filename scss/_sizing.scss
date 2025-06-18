@@ -1,0 +1,183 @@
+@use "sass:math";
+@use "variables" as *;
+
+@each $display in $displays {
+    .d-#{$display} {
+        display: $display;
+    }
+}
+
+.center-xy {
+    justify-content: center;
+    align-items: center;
+}
+
+.center-x {
+    justify-content: center;
+}
+
+.center-y {
+    align-items: center;
+}
+
+@each $size in $sizes {
+    .h-#{$size} {
+        height: #{math.percentage(math.div($size, 100))};
+    }
+    .w-#{$size} {
+        width: #{math.percentage(math.div($size, 100))};
+    }
+}
+
+@each $side, $prop in $sides {
+    @for $i from 0 through $sizing-topval {
+        .m#{$side}-#{$i} {
+            margin-#{$prop}: #{$i * $spacing};
+        }
+        .p#{$side}-#{$i} {
+            padding-#{$prop}: #{$i * $spacing};
+        }
+    }
+}
+
+@for $i from 0 through $sizing-topval {
+    .m-#{$i} {
+        margin: #{$i * $spacing} !important;
+    }
+    .p-#{$i} {
+        padding: #{$i * $spacing} !important;;
+    }
+    .mx-#{$i} {
+        margin-left: #{$i * $spacing} !important;;
+        margin-right: #{$i * $spacing} !important;;
+    }
+    .px-#{$i} {
+        padding-left: #{$i * $spacing} !important;;
+        padding-right: #{$i * $spacing} !important;;
+    }
+    .my-#{$i} {
+        margin-top: #{$i * $spacing} !important;;
+        margin-bottom: #{$i * $spacing} !important;;
+    }
+    .py-#{$i} {
+        padding-top: #{$i * $spacing} !important;;
+        padding-bottom: #{$i * $spacing} !important;;
+    }
+}
+
+@each $position in (absolute, relative, fixed, sticky) {
+    .pos-#{$position} {
+        position: $position;
+    }
+}
+
+@each $direction in (top, right, bottom, left) {
+    .pos-#{$direction} {
+        position: absolute;
+        #{$direction}: 0;
+    }
+}
+
+@each $value in (center, right, left) {
+    .text-align-#{$value} {
+        text-align: #{$value};
+    }
+}
+
+@each $direction in (top, right, bottom, left) {
+    @for $i from 0 through $sizing-topval {
+        .pos-#{$direction}-#{$i} {
+            position: absolute;
+            #{$direction}: #{$i * $spacing};
+        }
+    }
+}
+
+@each $direction in (top, right, bottom, left) {
+    @for $i from 0 through $sizing-topval {
+        .#{$direction}-#{$i} {
+            #{$direction}: #{$i * $spacing};
+        }
+    }
+}
+
+@each $size, $value in $font-sizes {
+    .font-#{$size} {
+        font-size: $value;
+    }
+}
+
+@for $i from 0 through $sizing-topval {
+    .border-radius-#{$i} {
+        border-radius: #{$i * $spacing};
+    }
+}
+
+.border-rl {
+    border-right: $border-width solid $border-color;
+    border-left: $border-width solid $border-color;
+}
+
+.border-tb {
+    border-top: $border-width solid $border-color;
+    border-bottom: $border-width solid $border-color;
+}
+
+.border-r {
+    border-right: $border-width solid $border-color;
+}
+
+.border-l {
+    border-left: $border-width solid $border-color;
+}
+
+.border-t {
+    border-top: $border-width solid $border-color;
+
+}
+
+.border-b {
+    border-bottom: $border-width solid $border-color;
+}
+
+.border {
+    border-right: $border-width solid $border-color;
+    border-left: $border-width solid $border-color;
+    border-top: $border-width solid $border-color;
+    border-bottom: $border-width solid $border-color;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr auto;
+    column-gap: 1em;
+
+    @for $c from 1 through 12 {
+        & .col-#{$c} {
+            grid-column: auto / span $c;
+        }
+    }
+}
+
+
+/* justify and align */
+@each $value in (start, end, center, stretch, space-around, space-between) {
+    .justify-#{$value} { justify-content: $value; }
+    .justify-items-#{$value} { justify-items: $value; }
+    .justify-self-#{$value} { justify-self: $value; }
+
+    .align-#{$value} { align-items: $value; }
+    .align-content-#{$value} { align-content: $value; }
+    .align-self-#{$value} { align-self: $value; }
+}
+
+@each $value in (row, row-reverse, column, column-reverse) {
+    .flex-#{$value} { flex-direction: $value; }
+}
+
+@for $i from 0 through 5 {
+    .z-index-#{$i} {
+        z-index: $i;
+    }
+}
