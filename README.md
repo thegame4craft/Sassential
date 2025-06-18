@@ -18,10 +18,12 @@ npm install
 
 ```sh
 npm run build:linux
+npm run build:min:linux
 
 # or for Windows
 
-npm run build:windows
+npm run build:win
+npm run build:min:win
 ```
 
 ## 🤝 Contributing
