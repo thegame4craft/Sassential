@@ -17,13 +17,8 @@ npm install
 ## Usage
 
 ```sh
-npm run build:linux
-npm run build:min:linux
-
-# or for Windows
-
-npm run build:win
-npm run build:min:win
+npm run build
+npm run release
 ```
 
 ## 🤝 Contributing

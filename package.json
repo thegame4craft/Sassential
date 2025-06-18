@@ -1,11 +1,11 @@
 {
   "name": "sassential",
-  "version": "1.0.0",
+  "version": "v0.1.0",
   "scripts": {
-    "build:min:win": "node_modules\\.bin\\sass scss/app.scss:build/css/app.min.css --style compressed --verbose",
-    "build:win": "node_modules\\.bin\\sass scss/app.scss:build/css/app.css --verbose",
-    "build:min:linux": "node_modules/.bin/sass scss/app.scss:build/css/app.min.css --style compressed --verbose",
-    "build:linux": "node_modules/.bin/sass scss/app.scss:build/css/app.css --verbose"
+    "build": "npm run build:dist && npm run build:min",
+    "build:min": "node_modules/.bin/sass scss/app.scss:build/css/app.min.css --style compressed --verbose",
+    "build:dist": "node_modules/.bin/sass scss/app.scss:build/css/app.css --verbose",
+    "release": "npm-build-zip --source=build -name=Sassential --info=true"
   },
   "repository": {
     "type": "git",
